@@ -2,33 +2,25 @@
     <head>
         <script>
             'use strict'
-            window.onload=function(){//获取dom应该在dom树渲染完成之后
-                document.getElementById('dom').addEventListener('click', ev=>{
-                    // getFirstChild(ev.target.children[0]);
-                    getFirstChild(ev.target);
-                });
-                function getFirstChild(child){// 判断是否第一个子元素，但是下面函数体的功能是判断该元素是否存在
-                    let {top:b,right:a}=child.getBoundingClientRect();//解构之后需要重新赋值
-                    if(val==2){//===类型和值必须都相同
-                        console.log(1)
-                        return true;
-                    }
-                    if(a&&b){
-                        console.log(2)
-                        return true;
-                    }else{
-                        console.log(3)
-                        return false;
-                    }
+            document.getElementById('dom').addEventListener('click',ev=>{
+                getFirstChild(ev.target.children[0]);
+            });
+            function getFirstChild(child){
+                let {b,a}=child.getBoundingClinetReact();
+                if(val===2){
+                    return true;
                 }
-
-                let val;
-                function init(value){//形参名字不要和变量名字一样
-                    val=value;//如果形参名字也是val，那么形参会被实参覆盖；
+                if(a&&b){
+                    return ture;
+                }else{
+                    return false;
                 }
-                init('2');
-                console.log(val)//val是局部变量，在这里访问不到，需要提前声明
-                }
+            }
+            function init(val){
+                val=val;
+            }
+            init('2');
+            console.log(val)
         </script>
     </head>
     <body>
